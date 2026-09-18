@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details | CandyLoop Food Truck</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { pink: '#FF3B70', cream: '#FFF5F7', gold: '#D61C4E', blue: '#FF7597', dark: '#111827' }
+                    },
+                    fontFamily: { heading: ['Plus Jakarta Sans', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="antialiased transition-colors duration-300 dark:bg-slate-900 dark:text-white pt-20">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 bg-slate-900 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo (Left) -->
+                <div class="flex-1 flex items-center">
+                    <a href="index.html" class="font-heading text-3xl font-bold text-white flex items-center gap-2 hover:opacity-80 transition">
+                        <i class="fa-solid fa-cloud text-brand-pink"></i>
+                        Candy<span class="text-brand-pink">Loop</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu Links (Center) -->
+                <div class="hidden lg:flex items-center gap-4 xl:gap-8">
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-white font-medium transition focus:outline-none py-2">
+                            Home <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:-rotate-180"></i>
+                        </button>
+                        <div class="absolute start-0 top-full mt-0 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top border border-gray-100 dark:border-gray-700 overflow-hidden z-50">
+                            <a href="index.html" class="block px-4 py-3 text-brand-pink bg-brand-pink/5 hover:bg-brand-pink/10 transition">Home 1 (Main)</a>
+                            <a href="index-2.html" class="block px-4 py-3 text-brand-dark dark:text-gray-300 hover:bg-brand-pink/10 hover:text-brand-pink transition border-t border-gray-100 dark:border-gray-700">Home 2 (Night)</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-white hover:text-brand-pink transition">About</a>
+                    <a href="services.html" class="text-white hover:text-brand-pink transition">Services</a>
+                    <a href="catering.html" class="text-white hover:text-brand-pink transition">Catering</a>
+                    <a href="menu.html" class="text-white hover:text-brand-pink transition">Menu</a>
+                    <a href="contact.html" class="text-white hover:text-brand-pink transition">Contact</a>
+                </div>
+
+                <!-- Utilities (Right) -->
+                <div class="flex-1 flex items-center justify-end gap-4">
+                    <!-- Desktop Utilities -->
+                    <div class="hidden lg:flex items-center gap-4 xl:gap-8 me-2">
+                        <button class="theme-toggle text-white hover:text-brand-blue transition focus:outline-none" aria-label="Toggle Dark Mode">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:inline"></i>
+                        </button>
+
+                        <button class="rtl-toggle text-xs font-bold bg-white/10 text-white px-2 py-1 rounded hover:bg-brand-pink hover:text-white transition focus:outline-none uppercase" aria-label="Toggle RTL/LTR">
+                            RTL
+                        </button>
+                        
+                        <a href="bookings.html" class="bg-brand-pink text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-brand-pink transition transform hover:-translate-y-0.5 shadow-lg hover-glow whitespace-nowrap">Bookings</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="lg:hidden flex items-center gap-4">
+                        <button class="rtl-toggle text-xs font-bold bg-white/10 text-white px-2 py-1 rounded transition focus:outline-none uppercase" aria-label="Toggle RTL/LTR">
+                            RTL
+                        </button>
+                        <button class="theme-toggle text-white" aria-label="Toggle Dark Mode">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="mobile-menu-btn" class="text-white hover:text-brand-pink focus:outline-none">
+                            <i class="fa-solid fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 shadow-lg absolute w-full left-0 border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <div class="space-y-1">
+                    <div class="px-3 py-2 text-white font-medium flex justify-between items-center cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('-rotate-180')">
+                        Home <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </div>
+                    <div class="pl-6 space-y-1 pb-2">
+                        <a href="index.html" class="block px-3 py-2 text-brand-pink font-medium">Home 1 (Main)</a>
+                        <a href="index-2.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Home 2 (Night)</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">About</a>
+                <a href="services.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Services</a>
+                <a href="catering.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Catering</a>
+                <a href="menu.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Menu</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Contact</a>
+                <a href="bookings.html" class="block w-full text-center mt-4 bg-brand-pink text-white px-6 py-3 rounded-full font-medium shadow-md hover:bg-white hover:text-brand-pink transition transform hover:-translate-y-0.5">Bookings</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Detailed Service Overview -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <a href="services.html" class="text-brand-pink hover:underline">&larr; Back to Services</a>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <img src="assets/img/loaded_funnel_cake.png" alt="Full Truck Booking" class="rounded-3xl shadow-xl w-full">
+                </div>
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-dark dark:text-white mb-4">Full Truck Booking</h1>
+                    <p class="text-2xl text-brand-pink font-bold mb-6">Starting at $500</p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Our flagship service. We bring the complete CandyLoop experience right to your venue. Our custom-designed, neon-illuminated step van is a centerpiece that will wow your guests. This service is ideal for outdoor weddings, corporate campus events, festivals, and large private parties.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                        With dual cotton candy machines and high-capacity fryers, we can comfortably serve up to 200 guests per hour, ensuring lines keep moving and everyone gets a hot, fresh dessert.
+                    </p>
+                    <button class="bg-brand-dark dark:bg-white text-white dark:text-brand-dark px-8 py-4 rounded-full font-bold hover:bg-brand-pink dark:hover:bg-brand-pink dark:hover:text-white transition w-full md:w-auto">Request This Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Included Features -->
+    <section class="py-20 bg-brand-cream dark:bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-heading font-bold text-center mb-12 dark:text-white">What's Included</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm flex gap-4 items-start border border-gray-100 dark:border-gray-700">
+                    <div class="bg-brand-pink/10 p-3 rounded-xl text-brand-pink text-xl"><i class="fa-solid fa-clock"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg dark:text-white mb-2">2 Hours of Service</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Active serving time. Setup and teardown time is complimentary and not billed.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm flex gap-4 items-start border border-gray-100 dark:border-gray-700">
+                    <div class="bg-brand-blue/10 p-3 rounded-xl text-brand-blue text-xl"><i class="fa-solid fa-users"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg dark:text-white mb-2">3 Professional Staff</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">One dedicated order taker, one cotton candy spinner, and one funnel cake chef.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm flex gap-4 items-start border border-gray-100 dark:border-gray-700">
+                    <div class="bg-brand-gold/10 p-3 rounded-xl text-brand-gold text-xl"><i class="fa-solid fa-list-ul"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg dark:text-white mb-2">Full Menu Access</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Guests can choose from up to 5 cotton candy flavors and 3 funnel cake signatures.</p>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm flex gap-4 items-start border border-gray-100 dark:border-gray-700">
+                    <div class="bg-brand-pink/10 p-3 rounded-xl text-brand-pink text-xl"><i class="fa-solid fa-music"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg dark:text-white mb-2">Entertainment Setup</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Includes our exterior neon lighting package and optional curated playlist played from the truck.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Pricing Table -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-heading font-bold text-center mb-12 dark:text-white">Service Tiers</h2>
+            
+            <div class="overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 dark:bg-slate-800 text-brand-dark dark:text-white">
+                            <th class="p-4 font-bold border-b border-gray-200 dark:border-gray-700">Feature</th>
+                            <th class="p-4 font-bold border-b border-gray-200 dark:border-gray-700 text-center">Basic Booking</th>
+                            <th class="p-4 font-bold border-b border-gray-200 dark:border-gray-700 text-center bg-brand-pink/10 text-brand-pink">VIP Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 dark:text-gray-300">
+                        <tr>
+                            <td class="p-4 border-b border-gray-200 dark:border-gray-700">Base Price</td>
+                            <td class="p-4 border-b border-gray-200 dark:border-gray-700 text-center font-bold">$500</td>
+                            <td class="p-4 border-b border-gray-200 dark:border-gray-700 text-center font-bold bg-brand-pink/5">$850</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-gray-200 dark:border-gray-700">Hours Included</td>
+                            <td class="p-4 border-b border-gray-200 dark:border-gray-700 text-center">2 Hours</td>
+                            <td class="p-4 border-b border-gray-200 dark:border-gray-700 text-center bg-brand-pink/5">4 Hours</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-gray-200 dark:border-gray-700">Cotton Candy Flavors</td>
+                            <td class="p-4 border-b border-gray-200 dark:border-gray-700 text-center">3 Classic</td>
+                            <td class="p-4 border-b border-gray-200 dark:border-gray-700 text-center bg-brand-pink/5">5 Premium + Glow Wands</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Custom Branding</td>
+                            <td class="p-4 text-center"><i class="fa-solid fa-minus text-gray-400"></i></td>
+                            <td class="p-4 text-center bg-brand-pink/5"><i class="fa-solid fa-check text-brand-pink"></i> Custom cone sleeves</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: FAQ Accordion -->
+    <section class="py-20 bg-brand-cream dark:bg-slate-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-heading font-bold text-center mb-12 dark:text-white">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer group">
+                    <h4 class="font-bold text-lg dark:text-white group-hover:text-brand-pink transition flex justify-between items-center">
+                        Do you need a power hookup?
+                        <i class="fa-solid fa-chevron-down text-sm"></i>
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-400 mt-4 text-sm">Our truck has a built-in quiet generator that can power everything independently. If the venue requires no generators, we will need access to two separate 20-amp circuits.</p>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer group">
+                    <h4 class="font-bold text-lg dark:text-white group-hover:text-brand-pink transition flex justify-between items-center">
+                        What happens if it rains?
+                        <i class="fa-solid fa-chevron-down text-sm"></i>
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-400 mt-4 text-sm hidden">Cotton candy melts in high humidity and rain. For outdoor events, we require a covered backup location or tent. In case of severe weather, we offer flexible rescheduling.</p>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer group">
+                    <h4 class="font-bold text-lg dark:text-white group-hover:text-brand-pink transition flex justify-between items-center">
+                        How much space does the truck need?
+                        <i class="fa-solid fa-chevron-down text-sm"></i>
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-400 mt-4 text-sm hidden">The truck requires a minimum space of 25ft length by 12ft width, with a clearance height of 11ft. We need a flat, paved or solid gravel surface.</p>
+                </div>
+            </div>
+            
+            <script>
+                // Simple accordion logic for demonstration
+                document.querySelectorAll('.group').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const p = item.querySelector('p');
+                        p.classList.toggle('hidden');
+                        const i = item.querySelector('i');
+                        i.classList.toggle('fa-chevron-down');
+                        i.classList.toggle('fa-chevron-up');
+                    });
+                });
+            </script>
+        </div>
+    </section>
+
+    
+    
+
+    
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div>
+                    <a href="index.html" class="font-heading text-3xl font-bold text-white flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-cloud text-brand-pink"></i> Candy<span class="text-brand-pink">Loop</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Elevating the food truck experience with luxury cotton candy and extravagant loaded funnel cakes. We bring the sweet spectacle to you.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-brand-pink hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-brand-blue hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-brand-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-xl">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-brand-pink transition">Home</a></li>
+                        <li><a href="menu.html" class="hover:text-brand-pink transition">Our Menu</a></li>
+                        <li><a href="catering.html" class="hover:text-brand-pink transition">Catering</a></li>
+                        <li><a href="about.html" class="hover:text-brand-pink transition">Our Story</a></li>
+                        <li><a href="bookings.html" class="hover:text-brand-pink transition">Bookings</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-xl">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-pink mt-1"></i>
+                            <span>123 Sugar Cloud Way,<br>San Francisco, CA 94105</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-blue"></i>
+                            <a href="tel:+15551234567" class="hover:text-white transition">(555) 123-4567</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-gold"></i>
+                            <a href="mailto:hello@candyloop.com" class="hover:text-white transition">hello@candyloop.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-xl">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">Subscribe for secret menu items, location drops, and sweet deals.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-pink transition text-sm">
+                        <button type="submit" class="w-full bg-brand-pink text-white rounded-lg px-4 py-2.5 font-bold hover:bg-opacity-90 transition shadow-md text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 CandyLoop Food Truck. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-slate-300 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300 transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" aria-label="Scroll to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

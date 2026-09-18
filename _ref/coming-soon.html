@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | CandyLoop Food Truck</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { pink: '#FF3B70', cream: '#FFF5F7', gold: '#D61C4E', blue: '#FF7597', dark: '#111827' }
+                    },
+                    fontFamily: { heading: ['Plus Jakarta Sans', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="antialiased min-h-screen flex items-center justify-center relative overflow-hidden bg-brand-dark text-white">
+
+    <!-- Background Elements -->
+    <div class="absolute inset-0 z-0">
+        <img src="assets/img/loaded_funnel_cake.png" alt="Bg" class="w-full h-full object-cover opacity-20">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
+    </div>
+
+    <!-- Floating Blobs -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-pink rounded-full mix-blend-multiply opacity-30 blur-3xl animate-blob z-0"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-blue rounded-full mix-blend-multiply opacity-30 blur-3xl animate-blob animation-delay-2000 z-0"></div>
+
+    <div class="max-w-4xl w-full px-4 relative z-10 text-center flex flex-col items-center">
+        
+        <!-- Logo -->
+        <div class="mb-12">
+            <span class="font-heading text-4xl font-bold flex items-center gap-2 justify-center drop-shadow-lg">
+                <i class="fa-solid fa-cloud text-brand-pink animate-bounce"></i> Candy<span class="text-brand-pink">Loop</span>
+            </span>
+        </div>
+
+        <!-- SECTION 2: Maintenance message -->
+        <h1 class="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">We're spinning up <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-blue">something sweet.</span></h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-12">Our new website is almost ready. We're adding the final dusting of powdered sugar to give you the best booking experience.</p>
+
+        <!-- SECTION 1: Countdown timer -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-16 max-w-2xl mx-auto w-full">
+            <div class="glass-dark rounded-3xl p-4 md:p-6 shadow-xl border border-white/10">
+                <span class="block text-4xl md:text-5xl font-heading font-bold text-brand-pink" id="days">14</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400 mt-2 block">Days</span>
+            </div>
+            <div class="glass-dark rounded-3xl p-4 md:p-6 shadow-xl border border-white/10">
+                <span class="block text-4xl md:text-5xl font-heading font-bold text-brand-blue" id="hours">08</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400 mt-2 block">Hours</span>
+            </div>
+            <div class="glass-dark rounded-3xl p-4 md:p-6 shadow-xl border border-white/10">
+                <span class="block text-4xl md:text-5xl font-heading font-bold text-brand-gold" id="minutes">45</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400 mt-2 block">Minutes</span>
+            </div>
+            <div class="glass-dark rounded-3xl p-4 md:p-6 shadow-xl border border-white/10">
+                <span class="block text-4xl md:text-5xl font-heading font-bold text-white" id="seconds">12</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400 mt-2 block">Seconds</span>
+            </div>
+        </div>
+
+        <!-- SECTION 3: Email subscription form -->
+        <div class="w-full max-w-md mx-auto mb-12">
+            <p class="text-sm text-gray-400 mb-4 uppercase tracking-widest font-bold">Get notified when we launch</p>
+            <form class="flex relative">
+                <input type="email" placeholder="Enter your email address" class="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-full pl-6 pr-32 py-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-pink" required>
+                <button type="submit" class="absolute right-2 top-2 bottom-2 bg-brand-pink text-white px-6 rounded-full font-bold hover:bg-brand-blue transition">Notify Me</button>
+            </form>
+        </div>
+
+        <!-- SECTION 4: Social media links -->
+        <div class="flex items-center justify-center gap-6">
+            <a href="#" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-pink hover:border-brand-pink transition text-xl"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-slate-900 hover:border-slate-900 transition text-xl"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold transition text-xl"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <!-- Countdown Script -->
+    <script>
+        // Set date to 14 days from now for demo
+        const countDownDate = new Date().getTime() + (14 * 24 * 60 * 60 * 1000);
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? '0' + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
+

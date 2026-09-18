@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | CandyLoop Food Truck</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { pink: '#FF3B70', cream: '#FFF5F7', gold: '#D61C4E', blue: '#FF7597', dark: '#111827' }
+                    },
+                    fontFamily: { heading: ['Plus Jakarta Sans', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="antialiased transition-colors duration-300 dark:bg-slate-900 dark:text-white pt-20">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 bg-slate-900 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo (Left) -->
+                <div class="flex-1 flex items-center">
+                    <a href="index.html" class="font-heading text-3xl font-bold text-white flex items-center gap-2 hover:opacity-80 transition">
+                        <i class="fa-solid fa-cloud text-brand-pink"></i>
+                        Candy<span class="text-brand-pink">Loop</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu Links (Center) -->
+                <div class="hidden lg:flex items-center gap-4 xl:gap-8">
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-white font-medium transition focus:outline-none py-2">
+                            Home <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:-rotate-180"></i>
+                        </button>
+                        <div class="absolute start-0 top-full mt-0 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top border border-gray-100 dark:border-gray-700 overflow-hidden z-50">
+                            <a href="index.html" class="block px-4 py-3 text-brand-pink bg-brand-pink/5 hover:bg-brand-pink/10 transition">Home 1 (Main)</a>
+                            <a href="index-2.html" class="block px-4 py-3 text-brand-dark dark:text-gray-300 hover:bg-brand-pink/10 hover:text-brand-pink transition border-t border-gray-100 dark:border-gray-700">Home 2 (Night)</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-white hover:text-brand-pink transition">About</a>
+                    <a href="services.html" class="text-white hover:text-brand-pink transition">Services</a>
+                    <a href="catering.html" class="text-white hover:text-brand-pink transition">Catering</a>
+                    <a href="menu.html" class="text-white hover:text-brand-pink transition">Menu</a>
+                    <a href="contact.html" class="text-white hover:text-brand-pink transition">Contact</a>
+                </div>
+
+                <!-- Utilities (Right) -->
+                <div class="flex-1 flex items-center justify-end gap-4">
+                    <!-- Desktop Utilities -->
+                    <div class="hidden lg:flex items-center gap-4 xl:gap-8 me-2">
+                        <button class="theme-toggle text-white hover:text-brand-blue transition focus:outline-none" aria-label="Toggle Dark Mode">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:inline"></i>
+                        </button>
+
+                        <button class="rtl-toggle text-xs font-bold bg-white/10 text-white px-2 py-1 rounded hover:bg-brand-pink hover:text-white transition focus:outline-none uppercase" aria-label="Toggle RTL/LTR">
+                            RTL
+                        </button>
+                        
+                        <a href="pricing.html" class="bg-brand-pink text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-brand-pink transition transform hover:-translate-y-0.5 shadow-lg hover-glow whitespace-nowrap">Book Truck</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="lg:hidden flex items-center gap-4">
+                        <button class="rtl-toggle text-xs font-bold bg-white/10 text-white px-2 py-1 rounded transition focus:outline-none uppercase" aria-label="Toggle RTL/LTR">
+                            RTL
+                        </button>
+                        <button class="theme-toggle text-white" aria-label="Toggle Dark Mode">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="mobile-menu-btn" class="text-white hover:text-brand-pink focus:outline-none">
+                            <i class="fa-solid fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 shadow-lg absolute w-full left-0 border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <div class="space-y-1">
+                    <div class="px-3 py-2 text-white font-medium flex justify-between items-center cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('-rotate-180')">
+                        Home <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </div>
+                    <div class="pl-6 space-y-1 pb-2">
+                        <a href="index.html" class="block px-3 py-2 text-brand-pink font-medium">Home 1 (Main)</a>
+                        <a href="index-2.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Home 2 (Night)</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">About</a>
+                <a href="services.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Services</a>
+                <a href="catering.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Catering</a>
+                <a href="menu.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Menu</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Contact</a>
+                <a href="pricing.html" class="block w-full text-center mt-4 bg-brand-pink text-white px-6 py-3 rounded-full font-medium shadow-md hover:bg-white hover:text-brand-pink transition transform hover:-translate-y-0.5">Book Truck</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Pricing Hero -->
+    <section class="pt-24 pb-48 bg-brand-cream dark:bg-slate-800 text-center relative overflow-hidden border-b border-gray-100 dark:border-gray-700">
+        <div class="max-w-3xl mx-auto px-4 relative z-10">
+            <h1 class="text-5xl font-heading font-bold text-brand-dark dark:text-white mb-4">Transparent Pricing</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300">No hidden fees. Just sweet, sweet catering for your next event.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Catering Packages -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Package 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-xl transition relative flex flex-col">
+                    <h3 class="text-2xl font-bold dark:text-white mb-2">The Sweet Start</h3>
+                    <p class="text-gray-500 text-sm mb-6">Perfect for small private parties</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-heading font-bold dark:text-white">$350</span>
+                        <span class="text-gray-500">/2 hrs</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-3 text-gray-600 dark:text-gray-300"><i class="fa-solid fa-check text-brand-pink"></i> Up to 50 guests</li>
+                        <li class="flex items-center gap-3 text-gray-600 dark:text-gray-300"><i class="fa-solid fa-check text-brand-pink"></i> 3 Cotton Candy Flavors</li>
+                        <li class="flex items-center gap-3 text-gray-600 dark:text-gray-300"><i class="fa-solid fa-check text-brand-pink"></i> Standard paper cones</li>
+                        <li class="flex items-center gap-3 text-gray-400 dark:text-gray-600"><i class="fa-solid fa-xmark"></i> No funnel cakes</li>
+                    </ul>
+                    <a href="contact.html" class="block text-center w-full py-3 rounded-full border-2 border-brand-pink text-brand-pink font-bold hover:bg-brand-pink hover:text-white transition">Book Sweet Start</a>
+                </div>
+                
+                <!-- Package 2 (Highlighted) -->
+                <div class="bg-brand-dark rounded-3xl p-8 shadow-2xl relative flex flex-col lg:-translate-y-4">
+                    <div class="absolute -top-4 inset-x-0 flex justify-center">
+                        <span class="bg-brand-gold text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-md">Most Popular</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 mt-2">The Carnival</h3>
+                    <p class="text-gray-400 text-sm mb-6">Ideal for weddings & corporate</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-heading font-bold text-white">$650</span>
+                        <span class="text-gray-400">/3 hrs</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-check text-brand-gold"></i> Up to 150 guests</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-check text-brand-gold"></i> 5 Premium Cotton Candy Flavors</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-check text-brand-gold"></i> Basic Funnel Cakes included</li>
+                        <li class="flex items-center gap-3 text-gray-300"><i class="fa-solid fa-check text-brand-gold"></i> 2 Professional Staff</li>
+                    </ul>
+                    <a href="contact.html" class="block text-center w-full py-3 rounded-full bg-brand-pink text-white font-bold hover:bg-white hover:text-brand-dark transition">Book The Carnival</a>
+                </div>
+                
+                <!-- Package 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-xl transition relative flex flex-col md:col-span-2 lg:col-span-1 md:w-1/2 md:mx-auto lg:w-full lg:mx-0">
+                    <h3 class="text-2xl font-bold dark:text-white mb-2">The Ultimate Glow</h3>
+                    <p class="text-gray-500 text-sm mb-6">For VIP events & festivals</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-heading font-bold dark:text-white">$1,200</span>
+                        <span class="text-gray-500">/4 hrs</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-3 text-gray-600 dark:text-gray-300"><i class="fa-solid fa-check text-brand-blue"></i> Unlimited guests</li>
+                        <li class="flex items-center gap-3 text-gray-600 dark:text-gray-300"><i class="fa-solid fa-check text-brand-blue"></i> Full Menu + Custom Flavors</li>
+                        <li class="flex items-center gap-3 text-gray-600 dark:text-gray-300"><i class="fa-solid fa-check text-brand-blue"></i> Signature Loaded Funnel Cakes</li>
+                        <li class="flex items-center gap-3 text-gray-600 dark:text-gray-300"><i class="fa-solid fa-check text-brand-blue"></i> LED Glow Wands included</li>
+                    </ul>
+                    <a href="contact.html" class="block text-center w-full py-3 rounded-full border-2 border-brand-blue text-brand-blue font-bold hover:bg-brand-blue hover:text-white transition">Book Ultimate Glow</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Feature Comparison Table -->
+    <section class="py-20 bg-brand-cream dark:bg-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-heading font-bold text-center mb-12 dark:text-white">Compare Features</h2>
+            
+            <div class="bg-white dark:bg-slate-900 rounded-3xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="bg-gray-50 dark:bg-slate-800 text-brand-dark dark:text-white border-b border-gray-200 dark:border-gray-700">
+                            <th class="p-6 font-bold w-1/3">Features</th>
+                            <th class="p-6 font-bold text-center">Sweet Start</th>
+                            <th class="p-6 font-bold text-center text-brand-pink">Carnival</th>
+                            <th class="p-6 font-bold text-center text-brand-blue">Ultimate</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 dark:text-gray-300 text-sm">
+                        <tr class="border-b border-gray-100 dark:border-gray-800">
+                            <td class="p-6 font-medium dark:text-white">Setup/Teardown Time</td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i></td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i></td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i></td>
+                        </tr>
+                        <tr class="border-b border-gray-100 dark:border-gray-800">
+                            <td class="p-6 font-medium dark:text-white">Travel (within 30 miles)</td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i></td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i></td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i></td>
+                        </tr>
+                        <tr class="border-b border-gray-100 dark:border-gray-800">
+                            <td class="p-6 font-medium dark:text-white">Custom Menu Board</td>
+                            <td class="p-6 text-center text-gray-300 dark:text-gray-600"><i class="fa-solid fa-minus"></i></td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i></td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i></td>
+                        </tr>
+                        <tr class="border-b border-gray-100 dark:border-gray-800">
+                            <td class="p-6 font-medium dark:text-white">Glow Wands ($2/ea value)</td>
+                            <td class="p-6 text-center text-gray-300 dark:text-gray-600"><i class="fa-solid fa-minus"></i></td>
+                            <td class="p-6 text-center text-gray-300 dark:text-gray-600">Add-on</td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i> Included</td>
+                        </tr>
+                        <tr>
+                            <td class="p-6 font-medium dark:text-white">Custom Sugar Colors</td>
+                            <td class="p-6 text-center text-gray-300 dark:text-gray-600"><i class="fa-solid fa-minus"></i></td>
+                            <td class="p-6 text-center text-gray-300 dark:text-gray-600">Add-on</td>
+                            <td class="p-6 text-center text-brand-pink"><i class="fa-solid fa-check"></i> Included</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Booking CTA -->
+    <section class="py-24 bg-brand-pink relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Need a Custom Quote?</h2>
+            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">If your event doesn't fit neatly into one of our packages, we are happy to create a custom proposal tailored to your specific needs.</p>
+            <a href="contact.html" class="inline-block bg-brand-dark text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-dark transition transform hover:-translate-y-1 shadow-2xl">Contact For Custom Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div>
+                    <a href="index.html" class="font-heading text-3xl font-bold text-white flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-cloud text-brand-pink"></i> Candy<span class="text-brand-pink">Loop</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Elevating the food truck experience with luxury cotton candy and extravagant loaded funnel cakes. We bring the sweet spectacle to you.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-brand-pink hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-brand-blue hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-brand-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-xl">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-brand-pink transition">Home</a></li>
+                        <li><a href="menu.html" class="hover:text-brand-pink transition">Our Menu</a></li>
+                        <li><a href="catering.html" class="hover:text-brand-pink transition">Catering</a></li>
+                        <li><a href="about.html" class="hover:text-brand-pink transition">Our Story</a></li>
+                        <li><a href="bookings.html" class="hover:text-brand-pink transition">Bookings</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-xl">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-pink mt-1"></i>
+                            <span>123 Sugar Cloud Way,<br>San Francisco, CA 94105</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-blue"></i>
+                            <a href="tel:+15551234567" class="hover:text-white transition">(555) 123-4567</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-gold"></i>
+                            <a href="mailto:hello@candyloop.com" class="hover:text-white transition">hello@candyloop.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-xl">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">Subscribe for secret menu items, location drops, and sweet deals.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-pink transition text-sm">
+                        <button type="submit" class="w-full bg-brand-pink text-white rounded-lg px-4 py-2.5 font-bold hover:bg-opacity-90 transition shadow-md text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 CandyLoop Food Truck. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-slate-300 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300 transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" aria-label="Scroll to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

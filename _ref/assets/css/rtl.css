@@ -1,0 +1,32 @@
+/* RTL Support */
+html[dir="rtl"] body {
+    text-align: right;
+}
+
+html[dir="rtl"] .ml-auto {
+    margin-right: auto;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .mr-auto {
+    margin-left: auto;
+    margin-right: 0 !important;
+}
+
+html[dir="rtl"] .pl-4 {
+    padding-right: 1rem;
+    padding-left: 0;
+}
+
+html[dir="rtl"] .pr-4 {
+    padding-left: 1rem;
+    padding-right: 0;
+}
+
+html[dir="rtl"] .text-left {
+    text-align: right;
+}
+
+html[dir="rtl"] .text-right {
+    text-align: left;
+}

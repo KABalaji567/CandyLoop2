@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | CandyLoop Food Truck</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { pink: '#FF3B70', cream: '#FFF5F7', gold: '#D61C4E', blue: '#FF7597', dark: '#111827' }
+                    },
+                    fontFamily: { heading: ['Plus Jakarta Sans', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="antialiased transition-colors duration-300 dark:bg-slate-900 dark:text-white pt-20">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 bg-slate-900 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo (Left) -->
+                <div class="flex-1 flex items-center">
+                    <a href="index.html" class="font-heading text-3xl font-bold text-white flex items-center gap-2 hover:opacity-80 transition">
+                        <i class="fa-solid fa-cloud text-brand-pink"></i>
+                        Candy<span class="text-brand-pink">Loop</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu Links (Center) -->
+                <div class="hidden lg:flex items-center gap-4 xl:gap-8">
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-white font-medium transition focus:outline-none py-2">
+                            Home <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:-rotate-180"></i>
+                        </button>
+                        <div class="absolute start-0 top-full mt-0 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top border border-gray-100 dark:border-gray-700 overflow-hidden z-50">
+                            <a href="index.html" class="block px-4 py-3 text-brand-pink bg-brand-pink/5 hover:bg-brand-pink/10 transition">Home 1 (Main)</a>
+                            <a href="index-2.html" class="block px-4 py-3 text-brand-dark dark:text-gray-300 hover:bg-brand-pink/10 hover:text-brand-pink transition border-t border-gray-100 dark:border-gray-700">Home 2 (Night)</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-white hover:text-brand-pink transition">About</a>
+                    <a href="services.html" class="text-white hover:text-brand-pink transition">Services</a>
+                    <a href="catering.html" class="text-white hover:text-brand-pink transition">Catering</a>
+                    <a href="menu.html" class="text-white hover:text-brand-pink transition">Menu</a>
+                    <a href="contact.html" class="text-white hover:text-brand-pink transition">Contact</a>
+                </div>
+
+                <!-- Utilities (Right) -->
+                <div class="flex-1 flex items-center justify-end gap-4">
+                    <!-- Desktop Utilities -->
+                    <div class="hidden lg:flex items-center gap-4 xl:gap-8 me-2">
+                        <button class="theme-toggle text-white hover:text-brand-blue transition focus:outline-none" aria-label="Toggle Dark Mode">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:inline"></i>
+                        </button>
+
+                        <button class="rtl-toggle text-xs font-bold bg-white/10 text-white px-2 py-1 rounded hover:bg-brand-pink hover:text-white transition focus:outline-none uppercase" aria-label="Toggle RTL/LTR">
+                            RTL
+                        </button>
+                        
+                        <a href="bookings.html" class="bg-brand-pink text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-brand-pink transition transform hover:-translate-y-0.5 shadow-lg hover-glow whitespace-nowrap">Bookings</a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="lg:hidden flex items-center gap-4">
+                        <button class="rtl-toggle text-xs font-bold bg-white/10 text-white px-2 py-1 rounded transition focus:outline-none uppercase" aria-label="Toggle RTL/LTR">
+                            RTL
+                        </button>
+                        <button class="theme-toggle text-white" aria-label="Toggle Dark Mode">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="mobile-menu-btn" class="text-white hover:text-brand-pink focus:outline-none">
+                            <i class="fa-solid fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 shadow-lg absolute w-full left-0 border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <div class="space-y-1">
+                    <div class="px-3 py-2 text-white font-medium flex justify-between items-center cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('-rotate-180')">
+                        Home <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </div>
+                    <div class="pl-6 space-y-1 pb-2">
+                        <a href="index.html" class="block px-3 py-2 text-brand-pink font-medium">Home 1 (Main)</a>
+                        <a href="index-2.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Home 2 (Night)</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">About</a>
+                <a href="services.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Services</a>
+                <a href="catering.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Catering</a>
+                <a href="menu.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Menu</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:bg-white/10 rounded-md">Contact</a>
+                <a href="bookings.html" class="block w-full text-center mt-4 bg-brand-pink text-white px-6 py-3 rounded-full font-medium shadow-md hover:bg-white hover:text-brand-pink transition transform hover:-translate-y-0.5">Bookings</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: Company Story -->
+    <section class="py-20 bg-brand-cream dark:bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl font-heading font-bold text-brand-dark dark:text-white mb-6">Spreading Joy, <br><span class="text-brand-pink">One Cloud at a Time.</span></h1>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        CandyLoop started in 2022 with a simple mission: to elevate the classic carnival treats we all love into a premium, gourmet experience. We believe that dessert isn't just about taste; it's about the spectacle, the nostalgia, and the aesthetic.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        What began as a small pop-up tent has grown into the city's most sought-after luxury dessert truck. Our signature glowing cotton candy and artisanal loaded funnel cakes have been featured at hundreds of weddings, corporate galas, and exclusive VIP events.
+                    </p>
+                    <div class="flex justify-center lg:justify-start gap-6">
+                        <div class="text-center">
+                            <span class="block text-3xl font-heading font-bold text-brand-blue">50k+</span>
+                            <span class="text-sm text-gray-500">Clouds Spun</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block text-3xl font-heading font-bold text-brand-gold">500+</span>
+                            <span class="text-sm text-gray-500">Events Catered</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="assets/img/sweet_start_package.png" alt="Making Cotton Candy" class="rounded-3xl shadow-2xl relative z-10 w-full h-[500px] object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-brand-pink w-48 h-48 rounded-full mix-blend-multiply opacity-50 blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Immersive Mission and Values -->
+    <section class="py-24 bg-white dark:bg-slate-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-heading font-bold text-center text-brand-dark dark:text-white mb-20">The CandyLoop Philosophy</h2>
+            
+            <div class="space-y-32">
+                <!-- Value 1 -->
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2 relative group">
+                        <div class="absolute -inset-4 bg-brand-pink/20 rounded-3xl blur-2xl transform group-hover:scale-105 transition duration-500"></div>
+                        <img src="assets/img/truck_serving_cotton_candy.png" alt="Serving Cotton Candy" class="relative z-10 w-full h-[500px] object-cover rounded-3xl shadow-2xl">
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div class="inline-flex items-center gap-3 bg-brand-pink/10 text-brand-pink px-4 py-2 rounded-full font-bold mb-6">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Aesthetic-First
+                        </div>
+                        <h3 class="text-4xl font-bold mb-6 dark:text-white">Every Serve is a Spectacle</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-xl leading-relaxed mb-6">
+                            We believe that the experience of a dessert begins long before the first bite. In an era where every moment is shared, we prioritize the visual spectacle of our creations.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                            From the way the sugar crystals catch the light to the precision of our towering cotton candy, every element is curated to be a masterpiece. We don't just serve food; we create edible art that demands to be photographed.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                    <div class="lg:w-1/2 relative group">
+                        <div class="absolute -inset-4 bg-brand-blue/20 rounded-3xl blur-2xl transform group-hover:scale-105 transition duration-500"></div>
+                        <img src="assets/img/truck_serving_funnel_cake.png" alt="Serving Funnel Cake" class="relative z-10 w-full h-[500px] object-cover rounded-3xl shadow-2xl">
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div class="inline-flex items-center gap-3 bg-brand-blue/10 text-brand-blue px-4 py-2 rounded-full font-bold mb-6">
+                            <i class="fa-solid fa-leaf"></i> Uncompromising Quality
+                        </div>
+                        <h3 class="text-4xl font-bold mb-6 dark:text-white">Premium Ingredients, No Compromise</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-xl leading-relaxed mb-6">
+                            While our products look whimsical, our approach to ingredients is serious. We've spent years sourcing the finest organic sugars, fresh fruits, and premium batters.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                            We avoid the chemical aftertastes of mass-produced carnival snacks, opting instead for a clean, premium profile that satisfies even the most discerning palates. It's indulgence you can feel good about.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION 3: Team Introduction -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-800 border-y border-gray-100 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-heading font-bold text-brand-dark dark:text-white mb-4">Meet The Candy Artisans</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">The passionate team behind the sweetest truck in town.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Team 1 -->
+                <div class="text-center group">
+                    <div class="relative w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-brand-pink group-hover:scale-105 transition">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=400" alt="Founder" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-bold dark:text-white mb-1">Chloe Davis</h3>
+                    <p class="text-brand-pink font-medium mb-3">Founder & Lead Spinner</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 px-4">Former pastry chef who fell in love with the art of spun sugar.</p>
+                </div>
+                <!-- Team 2 -->
+                <div class="text-center group">
+                    <div class="relative w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-brand-blue group-hover:scale-105 transition">
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=400" alt="Chef" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-bold dark:text-white mb-1">Marcus Chen</h3>
+                    <p class="text-brand-blue font-medium mb-3">Funnel Cake Master</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 px-4">Develops all our wild funnel cake batter recipes and seasonal toppings.</p>
+                </div>
+                <!-- Team 3 -->
+                <div class="text-center group md:col-span-2 lg:col-span-1 md:w-1/2 md:mx-auto lg:w-full lg:mx-0">
+                    <div class="relative w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-brand-gold group-hover:scale-105 transition">
+                        <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400" alt="Events" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-bold dark:text-white mb-1">Elena Rodriguez</h3>
+                    <p class="text-brand-gold font-medium mb-3">Event Director</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 px-4">Coordinates all our catering gigs, ensuring flawless luxury service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Testimonials -->
+    <section class="py-20 bg-brand-pink text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <i class="fa-solid fa-quote-left text-5xl opacity-30 mb-8"></i>
+            <h2 class="text-3xl md:text-5xl font-heading font-medium leading-tight mb-8">"CandyLoop completely transformed our corporate event. The aesthetic was immaculate, and the funnel cakes were the best I've ever had."</h2>
+            <div class="flex items-center justify-center gap-4">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-pink font-bold">JD</div>
+                <div class="text-left">
+                    <p class="font-bold">Jonathan Doe</p>
+                    <p class="text-sm opacity-80">Tech Corp CEO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+
+    
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div>
+                    <a href="index.html" class="font-heading text-3xl font-bold text-white flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-cloud text-brand-pink"></i> Candy<span class="text-brand-pink">Loop</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Elevating the food truck experience with luxury cotton candy and extravagant loaded funnel cakes. We bring the sweet spectacle to you.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-brand-pink hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-brand-blue hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-brand-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-xl">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-brand-pink transition">Home</a></li>
+                        <li><a href="menu.html" class="hover:text-brand-pink transition">Our Menu</a></li>
+                        <li><a href="catering.html" class="hover:text-brand-pink transition">Catering</a></li>
+                        <li><a href="about.html" class="hover:text-brand-pink transition">Our Story</a></li>
+                        <li><a href="bookings.html" class="hover:text-brand-pink transition">Bookings</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-xl">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-pink mt-1"></i>
+                            <span>123 Sugar Cloud Way,<br>San Francisco, CA 94105</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-blue"></i>
+                            <a href="tel:+15551234567" class="hover:text-white transition">(555) 123-4567</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-gold"></i>
+                            <a href="mailto:hello@candyloop.com" class="hover:text-white transition">hello@candyloop.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-xl">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">Subscribe for secret menu items, location drops, and sweet deals.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email Address" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-pink transition text-sm">
+                        <button type="submit" class="w-full bg-brand-pink text-white rounded-lg px-4 py-2.5 font-bold hover:bg-opacity-90 transition shadow-md text-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 CandyLoop Food Truck. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-slate-300 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300 transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" aria-label="Scroll to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
