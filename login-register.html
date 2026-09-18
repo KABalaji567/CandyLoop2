@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Register | CandyLoop Food Truck</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-side">
+        <img src="assets/img/loaded_funnel_cake.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;filter:blur(4px);z-index:0;">
+        <div style="position:relative;z-index:1;">
+        <a href="index.html" style="color:#fff;font-weight:700;margin-bottom:2rem;display:inline-block;">← Home</a>
+        <h2>Welcome Back to the Cloud!</h2>
+        <p style="color:rgba(255,255,255,0.75);">Sign in to manage your catering bookings, save your favorite flavors, or track your live orders.</p>
+        <p style="margin-top:2rem;font-weight:700;">New here?</p>
+        <label for="auth-toggle" class="switch btn btn-outline-light" style="margin-top:0.5rem;text-align:center;">Create an Account</label>
+        </div>
+      </div>
+
+      <input type="checkbox" id="auth-toggle" class="auth-toggle">
+
+      <div class="auth-body">
+        <div class="login-pane">
+          <h3>Sign In</h3>
+          <p class="muted">Enter your details to access your account.</p>
+          <form action="#">
+            <div class="field">
+              <label>Email Address</label>
+              <input type="email" placeholder="name@example.com">
+            </div>
+            <div class="field">
+              <label>Password <a href="#" style="float:right;font-size:0.8rem;color:var(--pink-deep);">Forgot Password?</a></label>
+              <input type="password" placeholder="••••••••">
+            </div>
+            <div class="field" style="display:flex;align-items:center;gap:0.5rem;">
+              <input type="checkbox" id="remember">
+              <label for="remember" style="margin:0;font-weight:500;">Remember me for 30 days</label>
+            </div>
+            <button type="submit" class="btn btn-dark btn-full">Sign In</button>
+          </form>
+
+          <p class="center muted" style="margin:1.5rem 0 0.5rem;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;">Or continue with</p>
+          <div class="grid-2">
+            <button type="button" class="btn btn-ghost btn-full">Google</button>
+            <button type="button" class="btn btn-ghost btn-full">Facebook</button>
+          </div>
+
+          <p class="center" style="margin-top:1.5rem;">
+            Don't have an account? <label for="auth-toggle" class="switch" style="display:inline;margin:0;">Sign up</label>
+          </p>
+        </div>
+
+        <div class="register-pane">
+          <h3>Create Account</h3>
+          <p class="muted">Join the CandyLoop family today.</p>
+          <form action="#">
+            <div class="grid-2">
+              <div class="field">
+                <label>First Name</label>
+                <input type="text">
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                <input type="text">
+              </div>
+            </div>
+            <div class="field">
+              <label>Email Address</label>
+              <input type="email">
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input type="password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Sign Up</button>
+          </form>
+
+          <p class="center" style="margin-top:1.5rem;">
+            Already have an account? <label for="auth-toggle" class="switch" style="display:inline;margin:0;">Sign in here</label>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

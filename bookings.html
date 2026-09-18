@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookings | CandyLoop Food Truck</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="back-row">
+    <a href="index.html" class="btn btn-ghost">← Back</a>
+    <a href="index.html" class="logo" style="color:var(--ink);"><span class="logo-mark"></span>Candy<span>Loop</span></a>
+  </div>
+
+  <main>
+    <section class="page-hero"></section>
+
+    <section class="section section-white">
+      <div class="container">
+        <h2 class="center" style="margin-bottom:2rem;">Why Book CandyLoop?</h2>
+        <div class="grid-3">
+          <article class="card center">
+            <h4>Stress-Free Setup</h4>
+            <p class="muted">We handle all the equipment, power, and ingredients. You just point us where to park, and we take care of the rest.</p>
+          </article>
+          <article class="card center">
+            <h4>Custom Menus</h4>
+            <p class="muted">From matching your wedding colors to branding corporate cotton candy cones, we customize the experience for you.</p>
+          </article>
+          <article class="card center">
+            <h4>Unforgettable Aesthetic</h4>
+            <p class="muted">Our modern truck and visually stunning desserts act as both catering and a major photo-op for your guests.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream">
+      <div class="container two-col-form">
+        <aside class="card">
+          <h3>How It Works</h3>
+          <div class="step"><b>1</b> <div><strong>Choose Your Package</strong><br><span class="muted">Select from Sweet Start, Carnival, or Ultimate Glow packages.</span></div></div>
+          <div class="step"><b>2</b> <div><strong>Pick a Date</strong><br><span class="muted">Find an available date on our calendar.</span></div></div>
+          <div class="step"><b>3</b> <div><strong>Secure Your Deposit</strong><br><span class="muted">Pay a 50% deposit to lock in your sweet celebration.</span></div></div>
+          <hr style="margin:1.5rem 0;border-color:var(--line);">
+          <h4>Contact Support</h4>
+          <p class="muted">booking@candyloop.com</p>
+          <p class="muted">(555) 123-4567</p>
+        </aside>
+
+        <div class="card">
+          <form action="#">
+            <h3>1. Event Details</h3>
+            <div class="grid-2">
+              <div class="field">
+                <label>Event Type</label>
+                <select>
+                  <option>Wedding</option>
+                  <option>Corporate Event</option>
+                  <option>Birthday Party</option>
+                  <option>Festival / Public Event</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Guest Count (approx)</label>
+                <input type="number" placeholder="e.g. 150">
+              </div>
+            </div>
+            <div class="field">
+              <label>Preferred Package</label>
+              <div class="package-picks">
+                <label>
+                  <input type="radio" name="package" value="sweet-start">
+                  <strong>Sweet Start</strong>
+                  <p class="muted" style="margin:0;font-size:0.8rem;">$350 / 2hrs</p>
+                </label>
+                <label>
+                  <input type="radio" name="package" value="carnival" checked>
+                  <strong>The Carnival</strong>
+                  <p class="muted" style="margin:0;font-size:0.8rem;">$650 / 3hrs</p>
+                </label>
+                <label>
+                  <input type="radio" name="package" value="ultimate">
+                  <strong>Ultimate Glow</strong>
+                  <p class="muted" style="margin:0;font-size:0.8rem;">$1,200 / 4hrs</p>
+                </label>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">2. Date &amp; Location</h3>
+            <div class="grid-2">
+              <div class="field">
+                <label>Event Date</label>
+                <input type="date">
+              </div>
+              <div class="field">
+                <label>Start Time</label>
+                <input type="time">
+              </div>
+            </div>
+            <div class="field">
+              <label>Event Address / Venue</label>
+              <input type="text" placeholder="123 Celebration Lane, City, State">
+            </div>
+
+            <h3 style="margin-top:2rem;">3. Contact Information</h3>
+            <div class="grid-2">
+              <div class="field">
+                <label>First Name</label>
+                <input type="text" placeholder="John">
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Doe">
+              </div>
+              <div class="field">
+                <label>Email Address</label>
+                <input type="email" placeholder="john@example.com">
+              </div>
+              <div class="field">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="(555) 123-4567">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" style="margin-top:1.5rem;">Submit Booking Request</button>
+            <p class="muted center" style="font-size:0.8rem;margin-top:1rem;">By submitting, you agree to our Terms of Service and Cancellation Policy.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
